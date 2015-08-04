@@ -10,8 +10,6 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 			id_num = paste("00",i,sep = "")
 		} else if (i < 100) {
 			id_num = paste("0",i,sep = "")
-		} else {
-			id_num = paste(i,sep = "")
 		}
 
 		filepath = 	paste(directory, "/", id_num, ".csv", sep = "")
@@ -26,7 +24,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 	} else if (pollutant == "nitrate"){
 		mean(combined_data[,3], na.rm = TRUE)
 	} else {
-		print("Function failed to exectute - please check the arguments")
+		print("empty")
 	}
 	
+	## test comment for commit on github
+
 }
