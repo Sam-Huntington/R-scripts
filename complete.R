@@ -25,13 +25,18 @@ complete <- function(directory, id = 1:332) {
 		if (nrow(temp_table[temp_complete,])>0){
 			x[j] = i
 			y[j] = nrow(temp_table[temp_complete,])
-			j = j+1
-		}	
+		} else {
+			x[j] = i
+			y[j] = -1
+		}
+		j = j+1	
 	}
 	
 	## replace zeros with NAs
 	x[x==0] <- NA
 	y[y==0] <- NA
+
+	y[y==-1] <- 0
 
 	## combine vectors into a data frame
 	outputs <- data.frame(id=x,nobs=y)
