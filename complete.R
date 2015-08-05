@@ -1,5 +1,7 @@
 complete <- function(directory, id = 1:332) {
 	  
+	## initialize vectors for storing id and complete cases, 
+	## setting rows equal to max id ensures robust upper bound on vector size
 	x <- integer(max(id))
 	y <- integer(max(id))	
 	j = 1
@@ -27,9 +29,11 @@ complete <- function(directory, id = 1:332) {
 		}	
 	}
 	
-	## replace zeros with NAs, then eliminate NAs with complete.cases function 
+	## replace zeros with NAs
 	x[x==0] <- NA
 	y[y==0] <- NA
+
+	## combine vectors into a data frame
 	outputs <- data.frame(id=x,nobs=y)
 	outputs <- outputs[complete.cases(outputs),]
 	outputs
